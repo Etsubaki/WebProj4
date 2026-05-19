@@ -11,7 +11,7 @@ import com.diworksdev.webproj4.dto.LoginDTO;
 import com.diworksdev.webproj4.util.DBConnector;
 
 public class LoginDAO {
-	public String usename;
+	public String username;
 	public String password;
 
 	public List<LoginDTO> loginDTOList = new ArrayList<LoginDTO>();
@@ -23,7 +23,7 @@ public class LoginDAO {
 		String sql = "select * from users where user_name=? and password=?";
 
 		try{
-			PreparedStatement ps= con.prepareStatement(sql);
+			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, username);
 			ps.setString(2, password);
 			ResultSet rs = ps.executeQuery();
@@ -35,7 +35,7 @@ public class LoginDAO {
 				loginDTOList.add(dto);
 			}
 
-			if(loginDTOList.size()<= 0){
+			if(loginDTOList.size()<=0){
 				LoginDTO dto=new LoginDTO();
 				dto.setUsername("該当なし");
 				dto.setPassword("該当なし");
